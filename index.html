@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A Letter for You ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+      font-family: 'Courier New', monospace;
+      color: #333;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    .letter {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      max-width: 600px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    .typing {
+      border-right: 3px solid #333;
+      white-space: pre-wrap;
+      overflow: hidden;
+      min-height: 160px;
+    }
+
+    .heart {
+      position: absolute;
+      color: red;
+      font-size: 20px;
+      animation: floatUp 6s linear forwards;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(60vh) scale(1); opacity: 1; }
+      to { transform: translateY(-20vh) scale(1.5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="letter">
+    <div id="text" class="typing"></div>
+  </div>
+
+  <script>
+    // ✍️ Change this message to your own letter
+    const message = `Dear yy,\n
+hiiiiii yy, it's been quite a while since we last talked haizzz
+i have finally grew my guts to send you this message
+shhhh i know the backgroud abit lovey dovey but yeah HAHAHAAHAH 
+im here to thank you for everything, you were the best, your presence lit up my world
+heheheh okay shhh no cringe HAHAHAAH okokokokokok sooo
+im sorry we both had to part ways, deep down i think we couldve made it if we were more mature, im sorry for being childish aadfwufjwfj
+okay, every moment with you were precious and unforgettable, you'll always hold a special place in my heart
+and i also want to tell you that i never regretted loving you and will always be grateful we spent our times together :D
+words really can't describe how much we have been through and what we did together, but my heart holds onto it forever :> gehegehghegheshe
+ty for bringing the best out of me, i just wished i could hug you once more haizzzz shangxin nanguo HAHAHAHHA
+i love you lotssssss AAHAHAHAHAH OKAY ENOUGH ENOUGH
+thank you for everything, i wish you ALL THE BEST IN THE FUTUREEEEEE
+goodluck and you can do it
+PLEASE KEEP PICHICK WELL keep it as a sign that we were together heheheheh 
+STAY HAPPY ALWAYSSSSS LOVESSSSSSSSSSSSSSSSSSSSSSSSSSSSS okay byebyeeeeeee. ❤️\n
+– [kern]`;
+
+    let i = 0;
+    function typeWriter() {
+      if (i < message.length) {
+        document.getElementById("text").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, 50);
+      }
+    }
+    typeWriter();
+
+    // floating hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 10 + "px";
+      heart.innerHTML = "❤";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 700);
+  </script>
+</body>
+</html>
